@@ -1,0 +1,84 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+#night-sky {
+    background: linear-gradient(180deg, #000046, #1CB5E0);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.falling-star {
+    position: absolute;
+    width: 20px; /* Zvětšíme pro lepší viditelnost */
+    height: 20px; /* Zvětšíme pro lepší viditelnost */
+    background-color: yellow; /* Změna pro lepší viditelnost */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0;
+    animation: fallingStar 3s linear infinite;
+}
+
+@keyframes fallingStar {
+    0% {
+        top: -2%;
+        left: 100%;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        left: 0;
+        opacity: 0;
+    }
+}
+.cloud {
+    position: absolute;
+    background-color: #f8f9fa; /* světle šedá pro lepší viditelnost */
+    border-radius: 50%;
+    opacity: 0; /* Startovní průhlednost */
+    transition: opacity 1s ease-out; /* Přechod pro efekt objevování */
+}
+
+#cloud1, #cloud2, #cloud3 {
+    width: 200px; 
+    height: 100px; 
+}
+
+#cloud1 {
+    top: 20%;
+    left: 10%;
+}
+
+#cloud2 {
+    top: 30%;
+    left: 50%;
+}
+
+#cloud3 {
+    top: 15%;
+    left: 80%;
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+}
+
+.cloud:before {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    left: 25px;
+}
+
+.cloud:after {
+    width: 100px;
+    height: 100px;
+    top: -30px;
+    right: 50px;
+}
